@@ -5,14 +5,12 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { LayoutDashboard, Menu, X } from "lucide-react";
-import { User } from "lucide-react";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <header className="border-b p-2 flex items-center justify-between relative">
-      {/* Logo */}
       <Link href="/">
         <Image
           src="/logo.png"
@@ -23,7 +21,6 @@ export default function Header() {
         />
       </Link>
 
-      {/* Desktop nav links */}
       <nav className="container  hidden md:flex flex-1 justify-center items-center space-x-20">
         <SignedIn>
           <Link href="/dashboard">
@@ -47,7 +44,6 @@ export default function Header() {
         </SignedIn>
       </nav>
 
-      {/* Right buttons */}
       <div className="flex items-center space-x-2">
         <SignedOut>
           <SignInButton>
@@ -60,7 +56,6 @@ export default function Header() {
           <UserButton />
         </SignedIn>
 
-        {/* Hamburger for mobile */}
         <button
           className="md:hidden ml-2 p-2 rounded-md hover:bg-gray-200"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -73,7 +68,6 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Mobile menu */}
       {mobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 w-full shadow-md z-50">
           <SignedIn>
